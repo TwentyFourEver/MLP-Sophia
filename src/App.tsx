@@ -871,7 +871,6 @@ export default function App() {
   useEffect(() => {
     if (!ready) return;
     audioEngine.setMusicTrack(activeGame ? 'game' : 'menu');
-    void audioEngine.start().catch(() => undefined);
   }, [activeGame, ready]);
   useEffect(() => {
     const update = () => setFullscreen(!!document.fullscreenElement);

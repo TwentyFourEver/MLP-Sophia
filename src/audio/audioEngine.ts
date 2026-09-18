@@ -251,7 +251,7 @@ class MagicalAudioEngine {
 
   private readonly unlockMusic = () => {
     this.disarmMusicUnlock();
-    void this.playMusic();
+    void this.start().catch(() => undefined);
   };
 
   private armMusicUnlock() {

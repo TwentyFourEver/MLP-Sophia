@@ -888,7 +888,10 @@ export default function App() {
     if (!writeStorage(SAVE_KEY, stamped)) setNotice('No se pudo guardar el progreso. Comprueba el almacenamiento del navegador.');
   }, []);
   const setMuted = useCallback((muted: boolean) => setSettings((current) => ({ ...current, muted })), []);
-  const initialReady = useCallback(() => setReady(true), []);
+  const initialReady = useCallback(() => {
+    audioEngine.setMusicTrack('menu');
+    setReady(true);
+  }, []);
   const finishTransition = useCallback(() => {
     if (!transition) return;
     setActiveGame(transition.save);

@@ -20,27 +20,33 @@ function loadImage(source: string) {
   return promise;
 }
 
-export function LoadingScreen({ assets, title = 'Preparando la magia', onReady }: {
-  assets: string[]; title?: string; onReady: () => void;
+export function LoadingScreen({ assets, title = 'Preparando la magia', onReady, waitForAction = false }: {
+  assets: string[]; title?: string; onReady: () => void; waitForAction?: boolean;
 }) {
   const [progress, setProgress] = useState(0);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
+  const [loaded, setLoaded] = useState(false);
   const assetKey = JSON.stringify(assets);
   useEffect(() => {
     let cancelled = false;
     let completed = 0;
     setProgress(0);
     setFailed(false);
+    setLoaded(false);
     const sources = [...new Set<string>(JSON.parse(assetKey))];
     const minimum = new Promise<void>((resolve) => window.setTimeout(resolve, 600));
     void Promise.all([minimum, ...sources.map(async (source) => {
       await loadImage(source);
       completed++;
       if (!cancelled) setProgress(Math.round(completed / sources.length * 100));
-    })]).then(() => { if (!cancelled) onReady(); }, () => { if (!cancelled) setFailed(true); });
+    })]).then(() => {
+      if (cancelled) return;
+      if (waitForAction) setLoaded(true);
+      else onReady();
+    }, () => { if (!cancelled) setFailed(true); });
     return () => { cancelled = true; };
-  }, [assetKey, attempt, onReady]);
+  }, [assetKey, attempt, onReady, waitForAction]);
   return (
     <div className="loading-screen loading-overlay" role="status" aria-live="polite" aria-busy={!failed}>
       <div className="loading-constellation" aria-hidden="true"><span>✧</span><b>✦</b><span>✧</span></div>
@@ -50,7 +56,7 @@ export function LoadingScreen({ assets, title = 'Preparando la magia', onReady }
       <div className="loading-track" role="progressbar" aria-label="Carga de imágenes" aria-valuemin={0} aria-valuemax={100} aria-valuenow={progress}>
         <span style={{ width: `${progress}%` }} />
       </div>
-      {failed ? <button className="primary-button" onClick={() => setAttempt((value) => value + 1)}>Reintentar</button> : <span className="loading-value">{progress}%</span>}
+      {failed ? <button className="primary-button" onClick={() => setAttempt((value) => value + 1)}>Reintentar</button> : loaded ? <button className="primary-button" onClick={onReady}>Comenzar <span aria-hidden="true">▷</span></button> : <span className="loading-value">{progress}%</span>}
       <small className="loading-tip">✦ Puedes volver a leer tus conversaciones desde el historial.</small>
     </div>
   );

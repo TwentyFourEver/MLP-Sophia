@@ -926,7 +926,7 @@ export default function App() {
 
   return <MotionContext.Provider value={reducedMotion}>
     <div className="app-view" inert={!!transition}>
-      {!ready ? <LoadingScreen assets={[...preloadableAssets, MENU_GROUP_ARTWORK, PONY_BASE]} onReady={initialReady} /> : creatingPony ?
+      {!ready ? <LoadingScreen assets={[...preloadableAssets, MENU_GROUP_ARTWORK, PONY_BASE]} onReady={initialReady} waitForAction /> : creatingPony ?
         <PonyCreator onCancel={() => setCreatingPony(false)} onComplete={startWithPony} /> : activeGame ?
         <Game key={session} initialSave={activeGame} settings={settings} reducedMotion={reducedMotion} paused={!!menu || !!transition}
           onExit={exitGame} onSave={saveProgress} onMenu={setMenu} onMutedChange={setMuted}

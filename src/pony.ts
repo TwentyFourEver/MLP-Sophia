@@ -12,7 +12,7 @@ export interface PonyAppearance {
   maneStyle: ManeStyle;
 }
 
-export const PONY_BASE = assetPath('player/pony-base.png');
+export const PONY_BASE = assetPath('player/pony-base.webp');
 export const DEFAULT_PONY: PonyAppearance = {
   name: 'Sophia', coat: '#d6b4ed', eyes: '#7955b5', mane: '#61519c', maneStyle: 'flowing',
 };

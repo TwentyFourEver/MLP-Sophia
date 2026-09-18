@@ -109,7 +109,7 @@ button:focus-visible {
 
 .title-screen__background {
   z-index: -4;
-  background: url('/assets/backgrounds/ponyville-gate.png') center / cover no-repeat;
+  background: url('/assets/backgrounds/ponyville-gate.webp') center / cover no-repeat;
   transform: scale(1.025);
 }
 

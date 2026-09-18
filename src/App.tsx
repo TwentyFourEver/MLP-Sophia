@@ -868,7 +868,11 @@ export default function App() {
     document.addEventListener('pointerover', hover, true);
     return () => document.removeEventListener('pointerover', hover, true);
   }, []);
-  useEffect(() => { if (ready) audioEngine.setMusicTrack(activeGame ? 'game' : 'menu'); }, [activeGame, ready]);
+  useEffect(() => {
+    if (!ready) return;
+    audioEngine.setMusicTrack(activeGame ? 'game' : 'menu');
+    void audioEngine.start().catch(() => undefined);
+  }, [activeGame, ready]);
   useEffect(() => {
     const update = () => setFullscreen(!!document.fullscreenElement);
     document.addEventListener('fullscreenchange', update);

@@ -2,7 +2,7 @@ import { sceneNames, type SavedGame } from '../gameState';
 import type { MenuId } from './GameMenus';
 import { assetPath } from '../assets';
 
-export const MENU_GROUP_ARTWORK = assetPath('menu/ponies-group.png');
+export const MENU_GROUP_ARTWORK = assetPath('menu/ponies-group.webp');
 export function TitleScreen({ savedGame, onContinue, onNewGame, onMenu }: {
   savedGame: SavedGame | null; onContinue: () => void; onNewGame: () => void; onMenu: (menu: MenuId) => void;
 }) {

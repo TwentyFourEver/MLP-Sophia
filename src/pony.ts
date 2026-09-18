@@ -1,4 +1,5 @@
 import type { StoryNode } from './story/types';
+import { assetPath } from './assets';
 
 export type ManeStyle = 'flowing' | 'swept' | 'short' | 'curly' | 'braided' | 'mohawk' | 'bob'
   | 'straight' | 'ponytail' | 'pigtails' | 'bun' | 'pixie' | 'layered'
@@ -11,7 +12,7 @@ export interface PonyAppearance {
   maneStyle: ManeStyle;
 }
 
-export const PONY_BASE = '/assets/player/pony-base.png';
+export const PONY_BASE = assetPath('player/pony-base.png');
 export const DEFAULT_PONY: PonyAppearance = {
   name: 'Sophia', coat: '#d6b4ed', eyes: '#7955b5', mane: '#61519c', maneStyle: 'flowing',
 };

@@ -1,4 +1,5 @@
 import type { CharacterDefinition, CharacterId, EmotionId, SceneId } from './types';
+import { assetPath } from '../assets';
 
 export const characters: Record<Exclude<CharacterId, 'narrator'>, CharacterDefinition> = {
   twilight: {
@@ -6,10 +7,10 @@ export const characters: Record<Exclude<CharacterId, 'narrator'>, CharacterDefin
     name: 'Twilight Sparkle',
     accent: '#a987ff',
     portraits: {
-      neutral: '/assets/characters/Twilight Sparkle/Twilight Sparkle.png',
-      happy: '/assets/characters/Twilight Sparkle/Twilight Sparkle-happy.png',
-      sad: '/assets/characters/Twilight Sparkle/Twilight Sparkle-sad.png',
-      doubtful: '/assets/characters/Twilight Sparkle/Twilight Sparkle-doubtful.png',
+      neutral: assetPath('characters/Twilight Sparkle/Twilight Sparkle.png'),
+      happy: assetPath('characters/Twilight Sparkle/Twilight Sparkle-happy.png'),
+      sad: assetPath('characters/Twilight Sparkle/Twilight Sparkle-sad.png'),
+      doubtful: assetPath('characters/Twilight Sparkle/Twilight Sparkle-doubtful.png'),
     },
   },
   spike: {
@@ -17,10 +18,10 @@ export const characters: Record<Exclude<CharacterId, 'narrator'>, CharacterDefin
     name: 'Spike',
     accent: '#9be15d',
     portraits: {
-      neutral: '/assets/characters/Spike/Spike.png',
-      happy: '/assets/characters/Spike/doubtful-happy.png',
-      sad: '/assets/characters/Spike/Spike-sad.png',
-      doubtful: '/assets/characters/Spike/Spike-doubtful.png',
+      neutral: assetPath('characters/Spike/Spike.png'),
+      happy: assetPath('characters/Spike/doubtful-happy.png'),
+      sad: assetPath('characters/Spike/Spike-sad.png'),
+      doubtful: assetPath('characters/Spike/Spike-doubtful.png'),
     },
     portraitClass: 'portrait--spike',
   },
@@ -29,10 +30,10 @@ export const characters: Record<Exclude<CharacterId, 'narrator'>, CharacterDefin
     name: 'Pinkie Pie',
     accent: '#ff80c8',
     portraits: {
-      neutral: '/assets/characters/Pinkie Pie/Pinkie Pie.png',
-      happy: '/assets/characters/Pinkie Pie/Pinkie Pie-happy.png',
-      sad: '/assets/characters/Pinkie Pie/Pinkie Pie-sad.png',
-      doubtful: '/assets/characters/Pinkie Pie/Pinkie Pie-doubtful.png',
+      neutral: assetPath('characters/Pinkie Pie/Pinkie Pie.png'),
+      happy: assetPath('characters/Pinkie Pie/Pinkie Pie-happy.png'),
+      sad: assetPath('characters/Pinkie Pie/Pinkie Pie-sad.png'),
+      doubtful: assetPath('characters/Pinkie Pie/Pinkie Pie-doubtful.png'),
     },
   },
   applejack: {
@@ -40,10 +41,10 @@ export const characters: Record<Exclude<CharacterId, 'narrator'>, CharacterDefin
     name: 'Applejack',
     accent: '#ffb454',
     portraits: {
-      neutral: '/assets/characters/Applejack/Applejack.png',
-      happy: '/assets/characters/Applejack/Applejack-happy.png',
-      sad: '/assets/characters/Applejack/Applejack-sad.png',
-      doubtful: '/assets/characters/Applejack/Applejack-doubtful.png',
+      neutral: assetPath('characters/Applejack/Applejack.png'),
+      happy: assetPath('characters/Applejack/Applejack-happy.png'),
+      sad: assetPath('characters/Applejack/Applejack-sad.png'),
+      doubtful: assetPath('characters/Applejack/Applejack-doubtful.png'),
     },
   },
   rarity: {
@@ -51,10 +52,10 @@ export const characters: Record<Exclude<CharacterId, 'narrator'>, CharacterDefin
     name: 'Rarity',
     accent: '#bc9cff',
     portraits: {
-      neutral: '/assets/characters/Rarity/Rarity.png',
-      happy: '/assets/characters/Rarity/Rarity-happy.png',
-      sad: '/assets/characters/Rarity/Rarity-sad.png',
-      doubtful: '/assets/characters/Rarity/Rarity-doubtful.png',
+      neutral: assetPath('characters/Rarity/Rarity.png'),
+      happy: assetPath('characters/Rarity/Rarity-happy.png'),
+      sad: assetPath('characters/Rarity/Rarity-sad.png'),
+      doubtful: assetPath('characters/Rarity/Rarity-doubtful.png'),
     },
   },
   fluttershy: {
@@ -62,10 +63,10 @@ export const characters: Record<Exclude<CharacterId, 'narrator'>, CharacterDefin
     name: 'Fluttershy',
     accent: '#ffd872',
     portraits: {
-      neutral: '/assets/characters/Fluttershy/Fluttershy.png',
-      happy: '/assets/characters/Fluttershy/Fluttershy-happy.png',
-      sad: '/assets/characters/Fluttershy/Fluttershy-sad.png',
-      doubtful: '/assets/characters/Fluttershy/Fluttershy-doubtful.png',
+      neutral: assetPath('characters/Fluttershy/Fluttershy.png'),
+      happy: assetPath('characters/Fluttershy/Fluttershy-happy.png'),
+      sad: assetPath('characters/Fluttershy/Fluttershy-sad.png'),
+      doubtful: assetPath('characters/Fluttershy/Fluttershy-doubtful.png'),
     },
   },
   rainbow: {
@@ -73,18 +74,18 @@ export const characters: Record<Exclude<CharacterId, 'narrator'>, CharacterDefin
     name: 'Rainbow Dash',
     accent: '#64dcff',
     portraits: {
-      neutral: '/assets/characters/Rainbow Dash/Rainbow Dash.png',
-      happy: '/assets/characters/Rainbow Dash/Rainbow Dash-happy.png',
-      sad: '/assets/characters/Rainbow Dash/Rainbow Dash-sad.png',
-      doubtful: '/assets/characters/Rainbow Dash/Rainbow Dash-doubtful.png',
+      neutral: assetPath('characters/Rainbow Dash/Rainbow Dash.png'),
+      happy: assetPath('characters/Rainbow Dash/Rainbow Dash-happy.png'),
+      sad: assetPath('characters/Rainbow Dash/Rainbow Dash-sad.png'),
+      doubtful: assetPath('characters/Rainbow Dash/Rainbow Dash-doubtful.png'),
     },
   },
 };
 
 export const backgrounds: Record<SceneId, string> = {
-  ponyville: '/assets/backgrounds/ponyville-gate.png',
-  hall: '/assets/backgrounds/crystal-hall.png',
-  festival: '/assets/backgrounds/festival-plaza.png',
+  ponyville: assetPath('backgrounds/ponyville-gate.png'),
+  hall: assetPath('backgrounds/crystal-hall.png'),
+  festival: assetPath('backgrounds/festival-plaza.png'),
 };
 
 export function getPortrait(characterId: CharacterId, emotion: EmotionId = 'neutral') {

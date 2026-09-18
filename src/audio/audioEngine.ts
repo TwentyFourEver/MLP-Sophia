@@ -1,21 +1,22 @@
 import type { SoundEffectId } from '../story/types';
+import { assetPath } from '../assets';
 
 const NOTE = (midi: number) => 440 * Math.pow(2, (midi - 69) / 12);
 
 type MusicTrackId = 'menu' | 'game';
 
 const MUSIC_TRACKS: Record<MusicTrackId, string> = {
-  menu: '/assets/Menu-music.mp3',
-  game: '/assets/background-game.mp3',
+  menu: assetPath('Menu-music.mp3'),
+  game: assetPath('background-game.mp3'),
 };
 
 const MUSIC_MAX_VOLUME = 0.4;
 const EFFECTS_GAIN_MAX = 0.375;
-const UI_CLICK_SOUND = '/assets/ui-click.mp3';
+const UI_CLICK_SOUND = assetPath('ui-click.mp3');
 const UI_CLICK_MAX_VOLUME = 0.475;
-const UI_HOVER_SOUND = '/assets/hover-sound-effect.mp3';
+const UI_HOVER_SOUND = assetPath('hover-sound-effect.mp3');
 const UI_HOVER_MAX_VOLUME = 0.32;
-const TEXT_WORD_SOUND = '/assets/text-word.mp3';
+const TEXT_WORD_SOUND = assetPath('text-word.mp3');
 const TEXT_WORD_MAX_VOLUME = 0.34;
 
 const clampVolume = (volume: number) => Math.min(1, Math.max(0, volume));
